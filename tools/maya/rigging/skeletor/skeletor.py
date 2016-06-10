@@ -8,7 +8,7 @@ from ..Utils import using_maya
 
 class Skeletor(object):
     def __new__(cls, prefix=''):
-        if using_maya:
+        if using_maya():
             return MayaSkeleton(prefix)
 
         return Skeleton(prefix)
@@ -28,3 +28,5 @@ class Skeletor(object):
                 continue
 
             skeleton.build()
+
+        return True
