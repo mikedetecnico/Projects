@@ -1,0 +1,1938 @@
+{
+    "_joints": [
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                0.0, 
+                0.0
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "Root"
+            ], 
+            "_name": "Parent", 
+            "_parent": "", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.1013054743591444, 
+                -2.7755575615628914e-17
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "HipGirdle"
+            ], 
+            "_name": "Root", 
+            "_parent": "Parent", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.1013054743591444, 
+                0.0
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "Lower_Back", 
+                "LFemur", 
+                "RFemur"
+            ], 
+            "_name": "HipGirdle", 
+            "_parent": "Root", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.273590988817759, 
+                0.0
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "Thorax"
+            ], 
+            "_name": "Lower_Back", 
+            "_parent": "HipGirdle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.4574301234393552, 
+                0.0
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "Neck", 
+                "LClavicle", 
+                "RClavicle"
+            ], 
+            "_name": "Thorax", 
+            "_parent": "Lower_Back", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.6502942693019418, 
+                -0.02074323996965725
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "Head"
+            ], 
+            "_name": "Neck", 
+            "_parent": "Thorax", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.0, 
+                1.736855655375943, 
+                -0.002433662860323163
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Head", 
+            "_parent": "Neck", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.09346417811298974, 
+                1.5996858077486613, 
+                0.016170543510041352
+            ], 
+            "_rotation": [
+                1.5275481642030402, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LShoulder"
+            ], 
+            "_name": "LClavicle", 
+            "_parent": "Thorax", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.22823040985095042, 
+                1.5541756086190968, 
+                -0.021592085124344337
+            ], 
+            "_rotation": [
+                -0.7115223943174135, 
+                2.687116196323887, 
+                -48.152142942141886
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LElbow"
+            ], 
+            "_name": "LShoulder", 
+            "_parent": "LClavicle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -1.7309391367244307, 
+                1.5488514587758109, 
+                -48.18982075838065
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.40227787645723345, 
+                1.3598410317191296, 
+                -0.03383608770825623
+            ], 
+            "_rotation": [
+                27.592611219124503, 
+                -34.30081973956564, 
+                -41.20026943464373
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LWrist"
+            ], 
+            "_name": "LElbow", 
+            "_parent": "LShoulder", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                28.07024173283951, 
+                -37.05327792594995, 
+                6.65654224604969
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.5609881353581389, 
+                1.2208993847064764, 
+                0.11005868359720027
+            ], 
+            "_rotation": [
+                27.592611219124503, 
+                -34.30081973956564, 
+                -41.20026943464373
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LThumb_Base", 
+                "LIndex_Base", 
+                "LMiddle_Base", 
+                "LRing_Base", 
+                "LPinky_Base"
+            ], 
+            "_name": "LWrist", 
+            "_parent": "LElbow", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.5587054515120051, 
+                1.188424288903602, 
+                0.16904484944883919
+            ], 
+            "_rotation": [
+                134.9345839552825, 
+                -47.91577291491866, 
+                -91.59577569488073
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LThumb_Mid"
+            ], 
+            "_name": "LThumb_Base", 
+            "_parent": "LWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                79.13217843116963, 
+                -34.690895611108566, 
+                -20.295360152933785
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.5576577496806849, 
+                1.150816640863798, 
+                0.2107052560317392
+            ], 
+            "_rotation": [
+                119.4067505077115, 
+                -44.1603159639345, 
+                -68.56918908710436
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LThumb_Tip"
+            ], 
+            "_name": "LThumb_Mid", 
+            "_parent": "LThumb_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                10.506765655755895, 
+                -12.60287745302052
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.5624320170155813, 
+                1.1210259104403621, 
+                0.2312409519494391
+            ], 
+            "_rotation": [
+                119.4067505077115, 
+                -44.1603159639345, 
+                -68.56918908710436
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LThumb_Tip", 
+            "_parent": "LThumb_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6209289559577063, 
+                1.1478030034991236, 
+                0.19801630114684118
+            ], 
+            "_rotation": [
+                38.14456385863261, 
+                -26.745005429404095, 
+                -58.67908353019004
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LIndex_Mid"
+            ], 
+            "_name": "LIndex_Base", 
+            "_parent": "LWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                1.8425152800610005, 
+                -1.621212056331585, 
+                -16.736563949385186
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6413193431921018, 
+                1.110723015918538, 
+                0.21988973498044714
+            ], 
+            "_rotation": [
+                44.496399994396484, 
+                -10.06430391486004, 
+                -78.40764594863396
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LIndex_Tip"
+            ], 
+            "_name": "LIndex_Mid", 
+            "_parent": "LIndex_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                -25.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6475827160430281, 
+                1.071440875464599, 
+                0.22999765701589953
+            ], 
+            "_rotation": [
+                44.496399994396484, 
+                -10.06430391486004, 
+                -78.40764594863396
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LIndex_Tip", 
+            "_parent": "LIndex_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6389969779226421, 
+                1.1435526823897582, 
+                0.1736398332257713
+            ], 
+            "_rotation": [
+                30.702017637629286, 
+                -23.146031869631592, 
+                -65.28375738025679
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LMiddle_Mid"
+            ], 
+            "_name": "LMiddle_Base", 
+            "_parent": "LWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -8.144090754905076, 
+                -2.4251731969459667, 
+                -23.679404516017478
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6601593736687291, 
+                1.0975766705020684, 
+                0.19527603621408487
+            ], 
+            "_rotation": [
+                44.37399190135931, 
+                -14.686379780503994, 
+                -84.10207892468428
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LMiddle_Tip"
+            ], 
+            "_name": "LMiddle_Mid", 
+            "_parent": "LMiddle_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                8.0, 
+                -2.883035484295549, 
+                -19.478323625406986
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6666718145114363, 
+                1.0577393800815833, 
+                0.20312942354908764
+            ], 
+            "_rotation": [
+                44.37399190135931, 
+                -14.686379780503994, 
+                -84.10207892468428
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LMiddle_Tip", 
+            "_parent": "LMiddle_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                5.628074765826118e-15, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6508156736551756, 
+                1.133936041692208, 
+                0.15074393804420572
+            ], 
+            "_rotation": [
+                30.420531778264024, 
+                -15.703817009172832, 
+                -62.97674550874658
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LRing_Mid"
+            ], 
+            "_name": "LRing_Base", 
+            "_parent": "LWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -7.716249314533535, 
+                4.75567542790728, 
+                -26.605350089169118
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6721724464961485, 
+                1.0920630373195417, 
+                0.16395979732911475
+            ], 
+            "_rotation": [
+                33.55215604381869, 
+                -8.76703371251928, 
+                -79.65467978143398
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LRing_Tip"
+            ], 
+            "_name": "LRing_Mid", 
+            "_parent": "LRing_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                -2.8186378994194197, 
+                -17.482188802330185
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6788152297863038, 
+                1.0556738012104783, 
+                0.16966445039342334
+            ], 
+            "_rotation": [
+                33.55215604381869, 
+                -8.76703371251928, 
+                -79.65467978143398
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LRing_Tip", 
+            "_parent": "LRing_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6433845446205183, 
+                1.130589956603377, 
+                0.11905507904371737
+            ], 
+            "_rotation": [
+                23.162179556772855, 
+                -10.64696922134192, 
+                -63.41856415262852
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LPinky_Mid"
+            ], 
+            "_name": "LPinky_Base", 
+            "_parent": "LWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -15.478308865197251, 
+                8.453224038734511, 
+                -30.10552777827199
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6613149475116399, 
+                1.094754773635027, 
+                0.12658810798953343
+            ], 
+            "_rotation": [
+                25.282831121953564, 
+                -5.265037828129689, 
+                -81.55809658252305
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LPinky_Tip"
+            ], 
+            "_name": "LPinky_Mid", 
+            "_parent": "LPinky_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                -2.528343877009892, 
+                -18.58045514623909
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.6650420176564104, 
+                1.0696422051179355, 
+                0.12892762383566295
+            ], 
+            "_rotation": [
+                25.282831121953564, 
+                -5.265037828129689, 
+                -81.55809658252305
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LPinky_Tip", 
+            "_parent": "LPinky_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.0934642, 
+                1.59969, 
+                0.0161705
+            ], 
+            "_rotation": [
+                -180.0, 
+                0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RShoulder"
+            ], 
+            "_name": "RClavicle", 
+            "_parent": "Thorax", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -180.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.22823, 
+                1.55319, 
+                -0.020365500000000005
+            ], 
+            "_rotation": [
+                178.26906086327546, 
+                -1.5488514587758113, 
+                48.18982075838067
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RElbow"
+            ], 
+            "_name": "RShoulder", 
+            "_parent": "RClavicle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -1.7309391367245375, 
+                1.5488514587758055, 
+                -48.189820758380655
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.40227800000000047, 
+                1.35859, 
+                -0.027424600000000007
+            ], 
+            "_rotation": [
+                -153.81561985363706, 
+                35.298977189192165, 
+                40.39651713179866
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RWrist"
+            ], 
+            "_name": "RElbow", 
+            "_parent": "RShoulder", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                28.070241732839637, 
+                -37.053277925949956, 
+                6.656542246049611
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.5609879999999997, 
+                1.22354, 
+                0.12012299999999974
+            ], 
+            "_rotation": [
+                -153.81561985363706, 
+                35.298977189192165, 
+                40.39651713179866
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RThumb_Base", 
+                "RIndex_Base", 
+                "RMiddle_Base", 
+                "RRing_Base", 
+                "RPinky_Base"
+            ], 
+            "_name": "RWrist", 
+            "_parent": "RElbow", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                8.537736462515939e-07, 
+                2.3696978290942318e-23, 
+                9.478791616522555e-23
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.558705, 
+                1.1926500000000004, 
+                0.179954
+            ], 
+            "_rotation": [
+                -45.00000000000001, 
+                49.44271048435003, 
+                91.64490914183483
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RThumb_Mid"
+            ], 
+            "_name": "RThumb_Base", 
+            "_parent": "RWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                79.13217843116966, 
+                -34.690895611108566, 
+                -20.295360152933767
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.5576579999999997, 
+                1.1561599999999996, 
+                0.22260199999999974
+            ], 
+            "_rotation": [
+                -61.39060424588239, 
+                45.579519998941365, 
+                68.00660794381552
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RThumb_Tip"
+            ], 
+            "_name": "RThumb_Mid", 
+            "_parent": "RThumb_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                6.417017023793039e-13, 
+                10.506765655755888, 
+                -12.602877453020525
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.5624320000000003, 
+                1.12693, 
+                0.24392399999999997
+            ], 
+            "_rotation": [
+                -61.39060424588238, 
+                45.57951999894136, 
+                68.00660794381554
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RThumb_Tip", 
+            "_parent": "RThumb_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6209289999999998, 
+                1.1528100000000003, 
+                0.20999799999999985
+            ], 
+            "_rotation": [
+                -142.75509644205746, 
+                28.04709488365048, 
+                58.26508168612319
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RIndex_Mid"
+            ], 
+            "_name": "RIndex_Base", 
+            "_parent": "RWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                1.84251528006158, 
+                -1.6212120563315884, 
+                -16.73656394938518
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6413190000000001, 
+                1.11633, 
+                0.23285200000000017
+            ], 
+            "_rotation": [
+                -135.81687698825888, 
+                11.560539423016069, 
+                78.348871830709
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RIndex_Tip"
+            ], 
+            "_name": "RIndex_Mid", 
+            "_parent": "RIndex_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                5.0768063792962366e-14, 
+                -2.2899993706537323e-13, 
+                -24.99999999999999
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6475829999999999, 
+                1.0773300000000001, 
+                0.24400299999999997
+            ], 
+            "_rotation": [
+                -135.81687698825888, 
+                11.560539423016069, 
+                78.348871830709
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RIndex_Tip", 
+            "_parent": "RIndex_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                1.2074182697257331e-06, 
+                -1.3405040683534573e-22, 
+                4.7923002377517624e-21
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6389970000000001, 
+                1.1479100000000007, 
+                0.1857430000000001
+            ], 
+            "_rotation": [
+                -150.00000000000003, 
+                24.53207376869537, 
+                64.99999999999997
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RMiddle_Mid"
+            ], 
+            "_name": "RMiddle_Base", 
+            "_parent": "RWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -8.144090754905097, 
+                -2.4251731969459587, 
+                -23.679404516017474
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6601589999999999, 
+                1.10253, 
+                0.20859699999999987
+            ], 
+            "_rotation": [
+                -135.78944939048625, 
+                16.205783265041017, 
+                84.05854551777495
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RMiddle_Tip"
+            ], 
+            "_name": "RMiddle_Mid", 
+            "_parent": "RMiddle_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                8.000000000000188, 
+                -2.8830354842955406, 
+                -19.47832362540699
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6666719999999998, 
+                1.0629200000000005, 
+                0.21750999999999981
+            ], 
+            "_rotation": [
+                -135.78944939048625, 
+                16.205783265041017, 
+                84.05854551777495
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RMiddle_Tip", 
+            "_parent": "RMiddle_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                8.537736462515937e-07, 
+                -1.1848489516239287e-22, 
+                2.3696978114386067e-23
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.650816, 
+                1.1376900000000008, 
+                0.16311200000000012
+            ], 
+            "_rotation": [
+                -150.30540439328107, 
+                17.063367266763652, 
+                62.77196613636348
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RRing_Mid"
+            ], 
+            "_name": "RRing_Base", 
+            "_parent": "RWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -7.716249314533452, 
+                4.755675427907284, 
+                -26.605350089169107
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6721720000000002, 
+                1.0961800000000004, 
+                0.17743900000000015
+            ], 
+            "_rotation": [
+                -146.72659595919478, 
+                10.26964151109456, 
+                79.60858038991715
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RRing_Tip"
+            ], 
+            "_name": "RRing_Mid", 
+            "_parent": "RRing_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -1.3241163173207477e-12, 
+                -2.8186378994194405, 
+                -17.4821888023302
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6788150000000003, 
+                1.0599599999999998, 
+                0.18411200000000033
+            ], 
+            "_rotation": [
+                -146.72659595919478, 
+                10.26964151109456, 
+                79.60858038991715
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RRing_Tip", 
+            "_parent": "RRing_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                8.537736462515939e-07, 
+                9.478791616522555e-23, 
+                -2.3696978290942318e-23
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6433850000000001, 
+                1.1335000000000006, 
+                0.13152300000000006
+            ], 
+            "_rotation": [
+                -157.5365882377233, 
+                12.012251789211385, 
+                63.28127781289822
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RPinky_Mid"
+            ], 
+            "_name": "RPinky_Base", 
+            "_parent": "RWrist", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -15.478308865197308, 
+                8.45322403873452, 
+                -30.10552777827199
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6613149999999999, 
+                1.0978799999999995, 
+                0.14000899999999988
+            ], 
+            "_rotation": [
+                -154.9429741283546, 
+                6.775990941489393, 
+                81.53441101374474
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RPinky_Tip"
+            ], 
+            "_name": "RPinky_Mid", 
+            "_parent": "RPinky_Base", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -9.178374708532879e-13, 
+                -2.5283438770098674, 
+                -18.580455146239085
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.6650419999999999, 
+                1.07284, 
+                0.1430169999999999
+            ], 
+            "_rotation": [
+                -154.9429729209363, 
+                6.775990941489392, 
+                81.53441101374477
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RPinky_Tip", 
+            "_parent": "RPinky_Mid", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                1.2074182697257333e-06, 
+                -1.5918479762438724e-22, 
+                -5.0268885304881023e-23
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.1003209090287789, 
+                1.0055554938491824, 
+                -0.029892815252863428
+            ], 
+            "_rotation": [
+                79.33087525191848, 
+                -3.6807082833507097, 
+                -82.4534390818966
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LKnee"
+            ], 
+            "_name": "LFemur", 
+            "_parent": "HipGirdle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                90.0, 
+                -4.152586908730558, 
+                -83.65338098796501
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.1589196572912678, 
+                0.5632317292516447, 
+                -0.0011899613998224423
+            ], 
+            "_rotation": [
+                79.22525782059398, 
+                8.684686875240619, 
+                -88.73728321544694
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LAnkle"
+            ], 
+            "_name": "LKnee", 
+            "_parent": "LFemur", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.6181126213557777, 
+                -3.8275072968491743, 
+                -13.333268208000986
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.16868420186815025, 
+                0.1202372117170174, 
+                -0.06887292031248415
+            ], 
+            "_rotation": [
+                89.99999917727983, 
+                -50.87907621677076, 
+                -79.76109339230312
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LBall", 
+                "Dummy_LFoot_Bank_Outside_1", 
+                "Dummy_LFoot_Bank_Inside_1", 
+                "Dummy_LHeel_1"
+            ], 
+            "_name": "LAnkle", 
+            "_parent": "LKnee", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                6.042273713066258, 
+                4.893054130419567, 
+                60.297504675119825
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.18274033066581163, 
+                0.04241975961104838, 
+                0.028358414591867664
+            ], 
+            "_rotation": [
+                44.99999836122673, 
+                -75.2388526825686, 
+                -43.30914362402105
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "LToe"
+            ], 
+            "_name": "LBall", 
+            "_parent": "LAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -9.46233224874043, 
+                8.707089264776576, 
+                27.154921689106
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.20139848931626336, 
+                0.024831577744316987, 
+                0.12567360329431698
+            ], 
+            "_rotation": [
+                44.99999836122674, 
+                -75.2388526825686, 
+                -43.30914362402106
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "LToe", 
+            "_parent": "LBall", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.2073554442139776, 
+                -3.552689253893959e-10, 
+                -0.021971832622759604
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_LFoot_Bank_Outside_1", 
+            "_parent": "LAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -90.00000000000006, 
+                79.76109339230341, 
+                -50.87907621677083
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.14740289330662926, 
+                3.1260696808921296e-10, 
+                -0.02197183208823625
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_LFoot_Bank_Inside_1", 
+            "_parent": "LAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -90.00000000000007, 
+                79.76109339230341, 
+                -50.87907621677081
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                0.16452583397152187, 
+                -3.2703520447263656e-11, 
+                -0.11794464805865792
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_LHeel_1", 
+            "_parent": "LAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -90.0, 
+                79.76109339230341, 
+                -50.87907621677073
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.100321, 
+                1.0055508234995219, 
+                -0.0298928
+            ], 
+            "_rotation": [
+                -90.0, 
+                4.152586908730552, 
+                83.653380987965
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RKnee"
+            ], 
+            "_name": "RFemur", 
+            "_parent": "HipGirdle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -90.00000000000001, 
+                4.152586908730555, 
+                83.653380987965
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.14961599999999997, 
+                0.5623518234995231, 
+                0.0024837599999998593
+            ], 
+            "_rotation": [
+                -89.99999999999626, 
+                -9.160027651476327, 
+                87.53040392010283
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RAnkle"
+            ], 
+            "_name": "RKnee", 
+            "_parent": "RFemur", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.6181126213600506, 
+                -3.8275072968491735, 
+                -13.33326820800098
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.1686840000000001, 
+                0.12023682349952225, 
+                -0.06887290000000011
+            ], 
+            "_rotation": [
+                -89.99999999999969, 
+                50.879076216770734, 
+                79.76109339230341
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RBall", 
+                "Dummy_RFoot_Bank_Outside_1", 
+                "Dummy_RFoot_Bank_Inside_1", 
+                "Dummy_RHeel_1"
+            ], 
+            "_name": "RAnkle", 
+            "_parent": "RKnee", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                6.042273713064412, 
+                4.893054130423279, 
+                60.297504675119605
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.1827400000000001, 
+                0.042419723499522236, 
+                0.02835839999999995
+            ], 
+            "_rotation": [
+                -134.9999999999997, 
+                75.23885299099275, 
+                43.30914457042987
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [
+                "RToe"
+            ], 
+            "_name": "RBall", 
+            "_parent": "RAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                -9.462332248740582, 
+                8.707089264776693, 
+                27.154921689105944
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.20139800000000005, 
+                0.024831623499522247, 
+                0.12567399999999995
+            ], 
+            "_rotation": [
+                -134.9999999999997, 
+                75.23885299099275, 
+                43.30914457042987
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "RToe", 
+            "_parent": "RBall", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                0.0, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.21842682647714354, 
+                -1.249000902703301e-16, 
+                -0.021971832471611635
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_RFoot_Bank_Outside_1", 
+            "_parent": "RAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                89.9999999999989, 
+                79.76109339230318, 
+                -50.8790762167718
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.13712333288809658, 
+                -2.7755575615628914e-17, 
+                -0.021971832471611594
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_RFoot_Bank_Inside_1", 
+            "_parent": "RAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                89.99999999999882, 
+                79.7610933923032, 
+                -50.879076216771885
+            ]
+        }, 
+        {
+            "_custom_attributes": {}, 
+            "_translation": [
+                -0.15710481908728582, 
+                -5.551115123125783e-17, 
+                -0.11794464828936906
+            ], 
+            "_rotation": [
+                0.0, 
+                -0.0, 
+                0.0
+            ], 
+            "_scale": [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "_children": [], 
+            "_name": "Dummy_RHeel_1", 
+            "_parent": "RAnkle", 
+            "_node": null, 
+            "_mirrored_joint": null, 
+            "_mirror": false, 
+            "_group": "", 
+            "_orientation": [
+                89.99999999999885, 
+                79.76109339230318, 
+                -50.879076216771864
+            ]
+        }
+    ], 
+    "_prefix": "", 
+    "_data_path": "E:\\Github\\api\\tools\\maya\\rigger\\skeletor\\data\\batman.json"
+}
