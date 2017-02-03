@@ -5,6 +5,7 @@ __all__ = ["Exporter"]
 
 # standard library imports
 import os
+import sys
 
 # Maya specific imports
 import pymel.core as pm
@@ -122,3 +123,65 @@ class Exporter(object):
             mel_export_cmd += ";"
 
         pm.mel.eval(mel_export_cmd)
+
+    @staticmethod
+    def get_maya_files(folder):
+        """ Get the list of Maya files in a particular folder.
+
+        Args:
+            folder (str): The folder to search for Maya files.
+
+        returns:
+            list<string>
+        """
+
+        if not os.path.isdir(folder):
+            raise IOError("{0} is not a folder".format(folder))
+
+        maya_files = [os.path.join(folder, mfile) for mfile in os.listdir(folder) if
+                      mfile.endswith(".ma") or mfile.endswith(".mb")]
+
+        return maya_files
+
+    @classmethod
+    def batch_export_fbx(cls, input_folder, output_folder):
+        """ Batch export a folder of Maya files as FBX files.
+
+        Args;
+            input_folder (str): The folder where the Maya files are located.
+            output_folder (str): The folder to save the FBX files to.
+        """
+
+        if output_folder == "":
+            return
+
+        if not os.path.isdir(output_folder):
+            os.makedirs(output_folder)
+
+        maya_files = cls.get_maya_files(input_folder)
+
+        if not maya_files:
+            return
+
+        for m_file in maya_files:
+            pm.newFile(f=True)
+
+            pm.openFile(m_file)
+
+            file_name = os.path.basename(m_file)
+
+            file_ext = m_file[m_file.index("."):]
+
+            output_path = r"{0}\{1}".format(output_folder, file_name.replace(file_ext, ".fbx"))
+
+            try:
+                cls.export_fbx(output_path)
+            except IOError:
+                continue
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 3:
+        input_path = sys.argv[1]
+        fbx_path = sys.argv[2]
+        Exporter.batch_export_fbx(input_path, input_path)
