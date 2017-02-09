@@ -163,7 +163,7 @@ class Exporter(object):
         if not maya_files:
             return
 
-        for m_file in maya_files:
+        for i, m_file in enumerate(maya_files):
             pm.newFile(f=True)
 
             pm.openFile(m_file)
@@ -178,6 +178,8 @@ class Exporter(object):
                 cls.export_fbx(output_path)
             except IOError:
                 continue
+
+            yield float(i + 1) / len(maya_files) * 100
 
 
 if __name__ == '__main__':
