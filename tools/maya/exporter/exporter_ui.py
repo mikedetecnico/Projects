@@ -5,6 +5,8 @@ __all__ = ["ExporterUI"]
 
 # standard library imports
 import sys
+import json
+import os
 
 # PySide imports
 from PySide2 import QtWidgets
@@ -22,6 +24,18 @@ def get_maya_window():
     """
     ptr = mui.MQtUtil.mainWindow()
     return shiboken2.wrapInstance(long(ptr), QtWidgets.QDialog)
+
+
+class ExporterSettings(object):
+    def __init__(self, out_path='', in_path=''):
+        """ constructor
+
+        Args:
+            out_path (str): The output path setting.
+            in_path (str): The input path settings.
+        """
+        self.output_path = out_path
+        self.input_path = in_path
 
 
 class ExporterUI(QtWidgets.QDialog):
@@ -43,10 +57,13 @@ class ExporterUI(QtWidgets.QDialog):
 
         self.setup_ui()
 
+        self.settings_path = os.path.dirname(__file__) + r"\settings\exporter_settings.json"
+
+        self.load_settings()
+
     def setup_ui(self):
         """ Setup the layout of the UI.
         """
-
         self.setup_input_layout()
 
         self.setup_output_layout()
@@ -60,10 +77,42 @@ class ExporterUI(QtWidgets.QDialog):
 
         self.setLayout(self.main_layout)
 
+    def save_settings(self):
+        """ Save the current data to a settings file to use later.
+        """
+        settings_dir = os.path.dirname(self.settings_path)
+
+        if not os.path.exists(settings_dir):
+            os.makedirs(settings_dir)
+
+        settings_data = ExporterSettings(self.output_path.text(), self.input_path.text())
+
+        with open(self.settings_path, 'w') as settings:
+            json.dump(settings_data.__dict__, settings, sort_keys=True, indent=4)
+            settings.close()
+
+    def load_settings(self):
+        """ Load the settings from the last use.
+        """
+        if not os.path.exists(self.settings_path):
+            return
+
+        with open(self.settings_path, 'r') as settings:
+            settings_data = json.load(settings)
+
+            exporter_settings = ExporterSettings()
+
+            exporter_settings.__dict__ = settings_data
+
+            self.output_path.setText(exporter_settings.output_path)
+
+            self.input_path.setText(exporter_settings.input_path)
+
+            settings.close()
+
     def setup_input_layout(self):
         """ Setup the layout for the input folder information.
         """
-
         input_layout = QtWidgets.QHBoxLayout()
 
         input_folder_label = QtWidgets.QLabel("Source Folder:")
@@ -85,7 +134,6 @@ class ExporterUI(QtWidgets.QDialog):
     def setup_output_layout(self):
         """ Setup the layout for the output folder information.
         """
-
         output_layout = QtWidgets.QHBoxLayout()
 
         output_folder_label = QtWidgets.QLabel("Output Folder:")
@@ -107,7 +155,6 @@ class ExporterUI(QtWidgets.QDialog):
     def setup_buttons(self):
         """ Setup the buttons for running the export process and canceling the process.
         """
-
         button_layout = QtWidgets.QHBoxLayout()
 
         ok_button = QtWidgets.QCommandLinkButton("OK")
@@ -153,6 +200,8 @@ class ExporterUI(QtWidgets.QDialog):
         self.progress_bar.setValue(0)
         self.progress_bar.setVisible(False)
 
+        self.save_settings()
+
 
 def main(standalone=False):
     if not standalone:
@@ -164,6 +213,13 @@ def main(standalone=False):
     return ui
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = None
+    try:
+        app = QtWidgets.QApplication(sys.argv)
+    except:
+        pass
+
     main_ui = main(True)
-    sys.exit(app.exec_())
+
+    if app:
+        sys.exit(app.exec_())
