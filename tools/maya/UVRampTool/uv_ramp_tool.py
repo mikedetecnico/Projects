@@ -67,6 +67,9 @@ class DoubleSlider(QSlider):
 
 
 class UVRampToolUI(QDialog):
+    WINDOW_NAME = "UVRampTool"
+    DEFAULT_MAP_NAME = "map2"
+
     def __init__(self, parent=None):
         """ Constructor.
         """
@@ -74,6 +77,7 @@ class UVRampToolUI(QDialog):
 
         self.setWindowTitle("UV Ramp Tool")
         self.setFixedSize(400, 200)
+        self.setObjectName(self.WINDOW_NAME)
 
         self.main_layout = QVBoxLayout()
 
@@ -89,25 +93,18 @@ class UVRampToolUI(QDialog):
 
         self.v_direction_offset_slider_label = None
 
+        self.direction_scale = None
+
+        self.direction_scale_slider_label = None
+
+        self.uv_map_name = None
+
         self.setup_ui()
 
     def setup_ui(self):
         """ Setup the layout of the UI.
         """
-
-        direction_layout = QHBoxLayout()
-
-        self.u_direction_radio = QRadioButton("U Direction")
-
-        direction_layout.addWidget(self.u_direction_radio)
-
-        self.v_direction_radio = QRadioButton("V Direction")
-
-        self.v_direction_radio.setChecked(True)
-
-        direction_layout.addWidget(self.v_direction_radio)
-
-        self.main_layout.addLayout(direction_layout)
+        self.setup_direction_radio_buttons()
 
         full_direction_offset_layout = QVBoxLayout()
 
@@ -153,7 +150,40 @@ class UVRampToolUI(QDialog):
 
         full_direction_offset_layout.addLayout(direction_offset_layout2)
 
+        direction_offset_layout3 = QHBoxLayout()
+
+        direction_offset_label3 = QLabel("Direction Scale")
+
+        direction_offset_layout3.addWidget(direction_offset_label3)
+
+        self.direction_scale = DoubleSlider()
+        self.direction_scale.setMinimum(0.01)
+        self.direction_scale.setMaximum(0.1)
+
+        direction_offset_layout3.addWidget(self.direction_scale)
+
+        self.direction_scale_slider_label = QLabel(str(self.direction_scale.value()))
+
+        direction_offset_layout3.addWidget(self.direction_scale_slider_label)
+
+        self.direction_scale.valueChanged.connect(
+            lambda: self.on_slider_value_changed(self.direction_scale, self.direction_scale_slider_label))
+
+        full_direction_offset_layout.addLayout(direction_offset_layout3)
+
         self.main_layout.addLayout(full_direction_offset_layout)
+
+        uv_map_name_layout = QHBoxLayout()
+
+        uv_map_name_label = QLabel("UV Map Name:")
+
+        uv_map_name_layout.addWidget(uv_map_name_label)
+
+        self.uv_map_name = QLineEdit(self.DEFAULT_MAP_NAME)
+
+        uv_map_name_layout.addWidget(self.uv_map_name)
+
+        self.main_layout.addLayout(uv_map_name_layout)
 
         button_layout = QHBoxLayout()
 
@@ -177,10 +207,27 @@ class UVRampToolUI(QDialog):
 
         self.setLayout(self.main_layout)
 
+    def setup_direction_radio_buttons(self):
+        """ Setup the radio buttons used for selecting the U or V direction
+        """
+        direction_layout = QHBoxLayout()
+
+        self.u_direction_radio = QRadioButton("U Direction")
+
+        direction_layout.addWidget(self.u_direction_radio)
+
+        self.v_direction_radio = QRadioButton("V Direction")
+
+        self.v_direction_radio.setChecked(True)
+
+        direction_layout.addWidget(self.v_direction_radio)
+
+        self.main_layout.addLayout(direction_layout)
+
     def on_slider_value_changed(self, current_slider, slider_label):
         """ Run when the value of the slider has changed.
         """
-        clamp_value = "%.1f" % (current_slider.value(),)
+        clamp_value = current_slider.value()
 
         current_slider.setValue(float(clamp_value))
 
@@ -189,47 +236,83 @@ class UVRampToolUI(QDialog):
     def on_run(self):
         """ Lays out the UVs based on the order of selection.
         """
+        selectedFaces = pm.ls(sl=True, fl=True)
 
-        selectedMeshes = pm.ls(sl=True)
+        if not selectedFaces:
+            pm.displayWarning("No faces selected!")
+            return
+
+        pm.polyUVSet(create=True, uvSet=self.uv_map_name.text())
+
+        pm.polyUVSet(currentUVSet=True, uvSet=self.uv_map_name.text())
 
         pm.select(clear=True)
 
-        for i, selTransform in enumerate(selectedMeshes):
-            selMesh = selTransform.getShape()
+        for i, selFace in enumerate(selectedFaces):
+            selMesh = selFace.node()
 
-            for vtx in selMesh.vtx:
-                pm.select(vtx, r=True)
+            pm.select(selFace, add=True)
 
-                pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=-0.1, scaleV=-0.1)
+        melProject = "polyAutoProjection -lm 0 -pb 0 -ibd 1 -cm 0 -l 2 -sc 1 -o 1 -p 6 -ps 0.2 -ws 0"
 
-                newU = -0.45
-                newV = -0.45
+        melProject += ";"
+        pm.mel.eval(melProject)
 
-                pm.polyEditUV(relative=True, uValue=newU, vValue=newV)
+        for i, selFace in enumerate(selectedFaces):
+            for vtx in selFace.getVertices():
+                uvIndices = selMesh.vtx[vtx].getUVIndices(uvSet="map2")
+                uvIndices.sort()
 
-                u_offset = 0.00
+                uvIndex = uvIndices[-1]
 
-                try:
-                    u_offset = self.u_direction_offset.value()
-                except:
-                    pass
+                pm.select(selMesh.map[uvIndex], add=True)
 
-                v_offset = 0.00
+        pm.polyMapCut(ch=1)
 
-                try:
-                    v_offset = self.v_direction_offset.value()
-                except:
-                    pass
+        for x, selFace in enumerate(selectedFaces):
+            pm.select(selFace, r=True)
+            pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=-0.1, scaleV=-0.1)
 
-                if self.u_direction_radio.isChecked():
-                    pm.polyEditUV(relative=True, uValue=((i + u_offset * 10) / 10.0), vValue=v_offset)
-                else:
-                    pm.polyEditUV(relative=True, vValue=((i + v_offset * 10) / 10.0), uValue=u_offset)
+            newU = -0.45
+            newV = -0.45
 
-        pm.select(selectedMeshes, r=True)
+            pm.polyEditUV(relative=True, uValue=newU, vValue=newV)
+
+            u_offset = 0.00
+
+            try:
+                u_offset = self.u_direction_offset.value()
+            except:
+                pass
+
+            v_offset = 0.00
+
+            try:
+                v_offset = self.v_direction_offset.value()
+            except:
+                pass
+
+            if self.u_direction_radio.isChecked():
+                pm.polyEditUV(relative=True, uValue=((x + u_offset) * 10.0 / 10.0), vValue=v_offset)
+
+                uscale = self.direction_scale.value()
+
+                pm.polyEditUV(pivotU=0, pivotV=0, scaleU=uscale, scaleV=0.1)
+            else:
+                pm.polyEditUV(relative=True, vValue=((x + v_offset) * 10.0 / 10.0), uValue=u_offset)
+
+                vscale = self.direction_scale.value()
+
+                pm.polyEditUV(pivotU=0.0, pivotV=0.0, scaleU=0.1, scaleV=vscale)
+
+        pm.select(selectedFaces, r=True)
 
 
 def main(standalone=False):
+    # delete the UI if it exists already
+    if pm.window(UVRampToolUI.WINDOW_NAME, exists=True):
+        pm.deleteUI(UVRampToolUI.WINDOW_NAME)
+
     if not standalone:
         ui = UVRampToolUI(get_maya_window())
     else:
