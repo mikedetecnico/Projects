@@ -12,7 +12,7 @@ import shiboken2
 # Maya imports
 import pymel.core as pm
 import maya.OpenMayaUI as mui
-
+import maya.cmds as cmds
 
 def get_maya_window():
     """ Get the main Maya window as a Qt instance.
@@ -236,11 +236,22 @@ class UVRampToolUI(QDialog):
     def on_run(self):
         """ Lays out the UVs based on the order of selection.
         """
-        selectedFaces = pm.ls(sl=True, fl=True)
+        orderFaceSelection = cmds.ls(os=True)
 
-        if not selectedFaces:
+        if not orderFaceSelection:
             pm.displayWarning("No faces selected!")
             return
+
+        mesh = pm.PyNode(orderFaceSelection[0][:orderFaceSelection[0].find(".")]).getShape()
+
+        selectedFaces = []
+
+        for eachSelection in orderFaceSelection:
+            index = int(eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")])
+
+            selectedFaces.append(mesh.f[index])
+
+        selectedFaces.reverse()
 
         pm.polyUVSet(create=True, uvSet=self.uv_map_name.text())
 
@@ -269,43 +280,63 @@ class UVRampToolUI(QDialog):
 
         pm.polyMapCut(ch=1)
 
+        selectedFaces.reverse()
+
         for x, selFace in enumerate(selectedFaces):
             pm.select(selFace, r=True)
-            pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=-0.1, scaleV=-0.1)
 
-            newU = -0.45
-            newV = -0.45
-
-            pm.polyEditUV(relative=True, uValue=newU, vValue=newV)
+            pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=0.1, scaleV=0.1)
 
             u_offset = 0.00
 
-            try:
-                u_offset = self.u_direction_offset.value()
-            except:
-                pass
-
             v_offset = 0.00
 
-            try:
-                v_offset = self.v_direction_offset.value()
-            except:
-                pass
+            v_Value = (x + v_offset) * 5.0 / 5.0
 
-            if self.u_direction_radio.isChecked():
-                pm.polyEditUV(relative=True, uValue=((x + u_offset) * 10.0 / 10.0), vValue=v_offset)
+            v_Value = v_Value / len(selectedFaces)
 
-                uscale = self.direction_scale.value()
+            print v_Value
+            pm.polyEditUV(vValue=v_Value, uValue=u_offset)
 
-                pm.polyEditUV(pivotU=0, pivotV=0, scaleU=uscale, scaleV=0.1)
-            else:
-                pm.polyEditUV(relative=True, vValue=((x + v_offset) * 10.0 / 10.0), uValue=u_offset)
+            pm.polyEditUV(uValue=-0.45, vValue=-0.45)
 
-                vscale = self.direction_scale.value()
+            # newU = -0.45
+            # newV = -0.45
 
-                pm.polyEditUV(pivotU=0.0, pivotV=0.0, scaleU=0.1, scaleV=vscale)
+            # pm.polyEditUV(relative=True, uValue=newU, vValue=newV)
 
-        pm.select(selectedFaces, r=True)
+            # u_offset = 0.00
+
+            # try:
+            #    u_offset = self.u_direction_offset.value()
+            # except:
+            #    pass
+
+            # v_offset = 0.00
+
+            # try:
+            #    v_offset = self.v_direction_offset.value()
+            # except:
+            #    pass
+
+            # if self.u_direction_radio.isChecked():
+            # pm.polyEditUV(relative=True, uValue=((x + u_offset) * 5.0 / 5.0), vValue=v_offset)
+
+            # uscale = self.direction_scale.value()
+
+            # pm.polyEditUV(pivotU=0, pivotV=0, scaleU=uscale, scaleV=0.1)
+            # else:
+            # pm.polyEditUV(relative=True, vValue=((x + v_offset) * 5.0 / 5.0), uValue=u_offset)
+
+            # vscale = self.direction_scale.value()
+
+            # vscale = 1.0 / len(selectedFaces)
+
+            # pm.polyEditUV(pivotU=0.0, pivotV=len(selectedFaces)/2.0, scaleU=vscale, scaleV=vscale)
+
+            # pm.polyEditUV(relative=True, vValue=-len(selectedFaces)/2.5)
+
+            # pm.select(selectedFaces, r=True)
 
 
 def main(standalone=False):
