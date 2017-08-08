@@ -12,6 +12,7 @@ import shiboken2
 # Maya imports
 import pymel.core as pm
 import maya.OpenMayaUI as mui
+import maya.cmds as cmds
 
 
 def get_maya_window():
@@ -158,7 +159,8 @@ class UVRampToolUI(QDialog):
 
         self.direction_scale = DoubleSlider()
         self.direction_scale.setMinimum(0.01)
-        self.direction_scale.setMaximum(0.1)
+        self.direction_scale.setMaximum(1)
+        self.direction_scale.setValue(1)
 
         direction_offset_layout3.addWidget(self.direction_scale)
 
@@ -249,92 +251,109 @@ class UVRampToolUI(QDialog):
     def on_run(self):
         """ Lays out the UVs based on the order of selection.
         """
-        orderFaceSelection = cmds.ls(os=True)
+        with pm.UndoChunk():
+            orderFaceSelection = cmds.ls(os=True)
 
-        if not orderFaceSelection:
-            pm.displayWarning("No faces selected!")
-            return
+            if not orderFaceSelection:
+                pm.displayWarning("No faces selected! Make sure to use the select button.")
+                return
 
-        mesh = pm.PyNode(orderFaceSelection[0][:orderFaceSelection[0].find(".")]).getShape()
+            if not ".f" in orderFaceSelection[0]:
+                pm.displayWarning("No faces selected!")
+                return
 
-        selectedFaces = []
+            mesh = pm.PyNode(orderFaceSelection[0][:orderFaceSelection[0].find(".")]).getShape()
 
-        for eachSelection in orderFaceSelection:
-            index = int(eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")])
+            selectedFaces = []
 
-            selectedFaces.append(mesh.f[index])
+            for eachSelection in orderFaceSelection:
+                try:
+                    index = int(eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")])
+                except:
+                    pm.displayWarning("Unable to create face index from " + eachSelection)
+                    continue
 
-        selectedFaces.reverse()
+                selectedFaces.append(mesh.f[index])
 
-        print selectedFaces
+            selectedFaces.reverse()
 
-        pm.polyUVSet(create=True, uvSet=self.uv_map_name.text())
+            pm.polyUVSet(create=True, uvSet=self.uv_map_name.text())
 
-        pm.polyUVSet(currentUVSet=True, uvSet=self.uv_map_name.text())
+            pm.polyUVSet(currentUVSet=True, uvSet=self.uv_map_name.text())
 
-        pm.select(clear=True)
+            pm.select(clear=True)
 
-        for i, selFace in enumerate(selectedFaces):
-            selMesh = selFace.node()
+            for i, selFace in enumerate(selectedFaces):
+                selMesh = selFace.node()
 
-            pm.select(selFace, add=True)
+                pm.select(selFace, add=True)
 
-        melProject = "polyAutoProjection -lm 0 -pb 0 -ibd 1 -cm 0 -l 2 -sc 1 -o 1 -p 6 -ps 0.2 -ws 0"
+            melProject = "polyAutoProjection -lm 0 -pb 0 -ibd 1 -cm 0 -l 2 -sc 1 -o 1 -p 6 -ps 0.2 -ws 0"
 
-        melProject += ";"
-        pm.mel.eval(melProject)
+            melProject += ";"
+            pm.mel.eval(melProject)
 
-        for i, selFace in enumerate(selectedFaces):
-            for vtx in selFace.getVertices():
-                uvIndices = selMesh.vtx[vtx].getUVIndices(uvSet="map2")
-                uvIndices.sort()
+            for i, selFace in enumerate(selectedFaces):
+                for vtx in selFace.getVertices():
+                    uvIndices = selMesh.vtx[vtx].getUVIndices(uvSet="map2")
+                    uvIndices.sort()
 
-                uvIndex = uvIndices[-1]
+                    uvIndex = uvIndices[-1]
 
-                pm.select(selMesh.map[uvIndex], add=True)
+                    pm.select(selMesh.map[uvIndex], add=True)
 
-        pm.polyMapCut(ch=1)
+            pm.polyMapCut(ch=1)
 
-        selectedFaces.reverse()
+            selectedFaces.reverse()
 
-        for x, selFace in enumerate(selectedFaces):
-            pm.select(selFace, r=True)
+            for x, selFace in enumerate(selectedFaces):
+                pm.select(selFace, r=True)
 
-            pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=0.1, scaleV=0.1)
+                pm.polyEditUV(pivotU=0.5, pivotV=0.5, scaleU=0.1, scaleV=0.1)
 
-            u_offset = 0.00
+                u_offset = 0.00
 
-            try:
-                u_offset = self.u_direction_offset.value()
-            except:
-                pass
+                try:
+                    u_offset = self.u_direction_offset.value()
+                except:
+                    pass
 
-            v_offset = 0.00
+                v_offset = 0.00
 
-            try:
-                v_offset = self.v_direction_offset.value()
-            except:
-                pass
+                try:
+                    v_offset = self.v_direction_offset.value()
+                except:
+                    pass
 
-            if self.u_direction_radio.isChecked():
-                u_Value = (x + u_offset) * 5.0 / 5.0
+                if self.u_direction_radio.isChecked():
+                    u_Value = (x + u_offset)
 
-                u_Value = u_Value / len(selectedFaces)
+                    pm.polyEditUV(vValue=0, uValue=u_Value)
 
-                pm.polyEditUV(vValue=v_offset, uValue=u_Value)
+                    pm.polyEditUV(uValue=-0.45, vValue=-0.45)
 
-                pm.polyEditUV(uValue=-0.45, vValue=-0.45)
+                    pm.polyEditUV(pu=0.0, pv=0.0, su=1.0 / len(selectedFaces), sv=1.0 / len(selectedFaces))
 
-            else:
-                v_Value = (x + v_offset) * 5.0 / 5.0
+                    pm.polyEditUV(pu=0.0, pv=0.0, scaleU=self.direction_scale.value(),
+                                  scaleV=self.direction_scale.value())
 
-                v_Value = v_Value / len(selectedFaces)
+                    pm.polyEditUV(relative=True, vValue=v_offset, uValue=u_offset)
 
-                pm.polyEditUV(vValue=v_Value, uValue=u_offset)
+                else:
+                    v_Value = (x + v_offset)
 
-                pm.polyEditUV(uValue=-0.45, vValue=-0.45)
+                    pm.polyEditUV(vValue=v_Value, uValue=0)
 
-        pm.select(selectedFaces, r=True)
+                    pm.polyEditUV(uValue=-0.45, vValue=-0.45)
+
+                    pm.polyEditUV(pu=0.0, pv=0.0, su=1.0 / len(selectedFaces), sv=1.0 / len(selectedFaces))
+
+                    pm.polyEditUV(pu=0.0, pv=0.0, scaleU=self.direction_scale.value(),
+                                  scaleV=self.direction_scale.value())
+
+                    pm.polyEditUV(relative=True, vValue=v_offset, uValue=u_offset)
+
+            pm.select(selectedFaces, r=True)
 
 
 def main(standalone=False):
