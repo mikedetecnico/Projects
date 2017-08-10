@@ -267,13 +267,21 @@ class UVRampToolUI(QDialog):
             selectedFaces = []
 
             for eachSelection in orderFaceSelection:
-                try:
-                    index = int(eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")])
-                except:
-                    pm.displayWarning("Unable to create face index from " + eachSelection)
-                    continue
+                if ":" in eachSelection:
+                    indices = eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")]
 
-                selectedFaces.append(mesh.f[index])
+                    startIndex, endIndex = indices.split(":")
+
+                    for rangeIndex in range(int(startIndex), int(endIndex) + 1):
+                        selectedFaces.append(mesh.f[rangeIndex])
+                else:
+                    try:
+                        index = int(eachSelection[eachSelection.find("[") + 1:eachSelection.find("]")])
+                    except:
+                        pm.displayWarning("Unable to create face index from " + eachSelection)
+                        continue
+
+                    selectedFaces.append(mesh.f[index])
 
             selectedFaces.reverse()
 
