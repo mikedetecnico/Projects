@@ -1,5 +1,7 @@
 __all__ = ['Skeletor']
 
+import os
+
 # skeletor imports
 from skeleton import Skeleton
 from maya_skeleton import MayaSkeleton
@@ -18,12 +20,20 @@ class Skeletor(object):
         """ Build a list of skeletons
 
         Args:
-            skeletons:  list(Skeleton) The list of skeletons to build
+            skeletons:  list(str) The list of paths to the skeleton definitions to build
         """
         if not skeletons or not isinstance(skeletons, list):
-            raise ValueError("Please pass a list of skeletons to build.")
+            raise ValueError("Please pass a list of paths to the skeleton definitions to build.")
 
-        for skeleton in skeletons:
+        skeleton_list = []
+
+        for def_path in skeletons:
+            if os.path.exists(def_path):
+                char_skeleton_def = Skeleton()
+                char_skeleton_def.load(def_path)
+                skeleton_list.append(char_skeleton_def)
+
+        for skeleton in skeleton_list:
             if not isinstance(skeleton, Skeleton):
                 continue
 
